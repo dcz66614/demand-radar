@@ -1,0 +1,60 @@
+F.....                                                                   [100%]
+=================================== FAILURES ===================================
+_________________ test_app_runs_and_shows_results_after_click __________________
+
+    def test_app_runs_and_shows_results_after_click():
+        at = _run_app()
+        assert len(at.button) == 1
+>       _click_and_settle(at)
+
+mvps/r1_a/tests/test_app_r1a.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+mvps/r1_a/tests/test_app_r1a.py:29: in _click_and_settle
+    at.button[0].click().run()
+../../workspace/.venv-demand-radar-numpy23/lib/python3.12/site-packages/streamlit/testing/v1/element_tree.py:486: in run
+    return self.root.run(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../workspace/.venv-demand-radar-numpy23/lib/python3.12/site-packages/streamlit/testing/v1/element_tree.py:4251: in run
+    result = self._runner._run(widget_states, timeout=timeout)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../workspace/.venv-demand-radar-numpy23/lib/python3.12/site-packages/streamlit/testing/v1/app_test.py:698: in _run
+    self._tree = script_runner.run(
+../../workspace/.venv-demand-radar-numpy23/lib/python3.12/site-packages/streamlit/testing/v1/local_script_runner.py:198: in run
+    require_widgets_deltas(self, timeout)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+runner = LocalScriptRunner(forward_msg_queue=<streamlit.runtime.forward_msg_queue.ForwardMsgQueue object at 0x7c37585dfdd0>, sc...6-42ed-ad46-f10bd6ae4bb9', fragment_ids=())}, {'client_state': page_script_hash: "659f7e10a6c3622f3593cd09f4fb950b"
+}])
+timeout = 3
+
+    def require_widgets_deltas(runner: LocalScriptRunner, timeout: float = 3) -> None:
+        """Wait for the given ScriptRunner to emit a completion event. If the timeout
+        is reached, the runner will be shutdown and an error will be thrown.
+        """
+    
+        t0 = time.time()
+        while time.time() - t0 < timeout:
+            time.sleep(0.001)
+            if runner.script_stopped():
+                return
+    
+        # If we get here, the runner hasn't yet completed before our
+        # timeout. Create an error string for debugging.
+        err_string = f"AppTest script run timed out after {timeout}(s)"
+    
+        # Shutdown the runner before throwing an error, so that the script
+        # doesn't hang forever.
+        runner.request_stop()
+        runner.join()
+    
+>       raise RuntimeError(err_string)
+E       RuntimeError: AppTest script run timed out after 3(s)
+
+../../workspace/.venv-demand-radar-numpy23/lib/python3.12/site-packages/streamlit/testing/v1/local_script_runner.py:266: RuntimeError
+----------------------------- Captured stderr call -----------------------------
+2026-11-06 00:02:03.520 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+------------------------------ Captured log call -------------------------------
+WARNING  streamlit.runtime.scriptrunner_utils.script_run_context:script_run_context.py:522 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+=========================== short test summary info ============================
+FAILED mvps/r1_a/tests/test_app_r1a.py::test_app_runs_and_shows_results_after_click
+1 failed, 5 passed in 6.26s

@@ -1,0 +1,6 @@
+allowed:
+  - github: https://api.github.com/repos/{owner}/{repo}/issues
+  - hackernews: https://hacker-news.firebaseio.com/v0/askstories.json
+  - official_docs: product documentation / release notes (competitor checks only)
+disabled:
+  - reddit: DISABLED_PERMISSION

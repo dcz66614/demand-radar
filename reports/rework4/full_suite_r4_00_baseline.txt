@@ -1,0 +1,107 @@
+.............sssssss.................................................... [ 24%]
+........................................................................ [ 48%]
+..................................................FFFFFF................ [ 72%]
+........................................................................ [ 96%]
+.........                                                                [100%]
+=================================== FAILURES ===================================
+_____ test_raw_response_must_reject_nonstandard_json_constants[{"n":NaN}] ______
+
+invalid_json = '{"n":NaN}'
+
+    @pytest.mark.parametrize('invalid_json', [
+        '{"n":NaN}',
+        '{"n":Infinity}',
+        '{"n":-Infinity}',
+    ])
+    def test_raw_response_must_reject_nonstandard_json_constants(invalid_json):
+        outcome, passed, detail = _validate_payload({}, {'raw': invalid_json})
+>       assert not passed and outcome != 'ok', (outcome, passed, detail)
+E       AssertionError: ('ok', True, 'response valid')
+E       assert (not True)
+
+tests/test_independent_r3.py:35: AssertionError
+___ test_raw_response_must_reject_nonstandard_json_constants[{"n":Infinity}] ___
+
+invalid_json = '{"n":Infinity}'
+
+    @pytest.mark.parametrize('invalid_json', [
+        '{"n":NaN}',
+        '{"n":Infinity}',
+        '{"n":-Infinity}',
+    ])
+    def test_raw_response_must_reject_nonstandard_json_constants(invalid_json):
+        outcome, passed, detail = _validate_payload({}, {'raw': invalid_json})
+>       assert not passed and outcome != 'ok', (outcome, passed, detail)
+E       AssertionError: ('ok', True, 'response valid')
+E       assert (not True)
+
+tests/test_independent_r3.py:35: AssertionError
+__ test_raw_response_must_reject_nonstandard_json_constants[{"n":-Infinity}] ___
+
+invalid_json = '{"n":-Infinity}'
+
+    @pytest.mark.parametrize('invalid_json', [
+        '{"n":NaN}',
+        '{"n":Infinity}',
+        '{"n":-Infinity}',
+    ])
+    def test_raw_response_must_reject_nonstandard_json_constants(invalid_json):
+        outcome, passed, detail = _validate_payload({}, {'raw': invalid_json})
+>       assert not passed and outcome != 'ok', (outcome, passed, detail)
+E       AssertionError: ('ok', True, 'response valid')
+E       assert (not True)
+
+tests/test_independent_r3.py:35: AssertionError
+____________ test_streaming_function_arguments_must_reject_json_nan ____________
+
+    def test_streaming_function_arguments_must_reject_json_nan():
+        events = [
+            {'type':'response.output_item.added', 'output_index':0,
+             'item': {'type':'function_call', 'id':'fc_test', 'call_id':'call_test', 'arguments':''}},
+            {'type':'response.function_call_arguments.delta', 'output_index':0,
+             'item_id':'fc_test', 'delta':'{"n":NaN}'},
+            {'type':'response.output_item.done', 'output_index':0,
+             'item': {'type':'function_call', 'id':'fc_test','call_id':'call_test','arguments':'{"n":NaN}'}}
+        ]
+        verdict = validate_stream(events, emit_on_done=True)
+>       assert not verdict['passed'], verdict
+E       AssertionError: {'outcome': 'ok', 'passed': True, 'emitted': 1, 'detail': 'done event(s) for 1 call(s), 1 completed chunk(s) emitted (expected 1)'}
+E       assert not True
+
+tests/test_independent_r3.py:48: AssertionError
+_________ test_not_checked_factual_result_must_not_inflate_pass_count __________
+
+    def test_not_checked_factual_result_must_not_inflate_pass_count():
+        scenario = {'name':'Keyword Only','kind':'api_call', 'source_url':'https://example.org/dummy'}
+        step = {'call':'answer', 'response_content':'Paris is NOT the capital of France.',
+                'expected_keywords':['Paris']}
+        r = run_step(scenario, step, SimulatedTransport())
+        assert r.outcome == 'not-checked', r
+>       assert r.passed is False, ('NOT_CHECKED must not count as a verified PASS',r)
+E       AssertionError: ('NOT_CHECKED must not count as a verified PASS', CallResult(scenario='Keyword Only', kind='api_call', step='answer', ...y', detail='expected keywords present; factual truth not checked — keyword match does not verify factual correctness'))
+E       assert True is False
+E        +  where True = CallResult(scenario='Keyword Only', kind='api_call', step='answer', outcome='not-checked', passed=True, attempts=1, el...my', detail='expected keywords present; factual truth not checked — keyword match does not verify factual correctness').passed
+
+tests/test_independent_r3.py:57: AssertionError
+_____ test_completed_response_with_unfinished_function_call_must_not_pass ______
+
+    def test_completed_response_with_unfinished_function_call_must_not_pass():
+        events = [
+            {'type':'response.output_item.added', 'output_index':0,
+             'item': {'type':'function_call', 'id':'fc_aborted','call_id':'c_aborted'}},
+            {'type':'response.completed'},
+        ]
+        v = validate_stream(events, emit_on_done=True)
+>       assert v['outcome'] != 'ok' and not v['passed'], v
+E       AssertionError: {'outcome': 'ok', 'passed': True, 'emitted': 0, 'detail': 'done event(s) for 0 call(s), 0 completed chunk(s) emitted (expected 0); 1 call(s) added but never done'}
+E       assert ('ok' != 'ok')
+
+tests/test_independent_r3.py:67: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_independent_r3.py::test_raw_response_must_reject_nonstandard_json_constants[{"n":NaN}]
+FAILED tests/test_independent_r3.py::test_raw_response_must_reject_nonstandard_json_constants[{"n":Infinity}]
+FAILED tests/test_independent_r3.py::test_raw_response_must_reject_nonstandard_json_constants[{"n":-Infinity}]
+FAILED tests/test_independent_r3.py::test_streaming_function_arguments_must_reject_json_nan
+FAILED tests/test_independent_r3.py::test_not_checked_factual_result_must_not_inflate_pass_count
+FAILED tests/test_independent_r3.py::test_completed_response_with_unfinished_function_call_must_not_pass
+6 failed, 284 passed, 8 skipped in 4.97s

@@ -1,0 +1,16 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.2.0, pluggy-1.7.0 -- /home/hatch/projects/demand-radar-rework2/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/hatch/projects/demand-radar-rework2
+configfile: pyproject.toml
+plugins: anyio-4.16.0
+collecting ... collected 6 items
+
+mvps/r1_a/tests/test_app_r1a.py::test_app_runs_and_shows_results_after_click PASSED [ 16%]
+mvps/r1_a/tests/test_app_r1a.py::test_outcome_filter_narrows_results PASSED [ 33%]
+mvps/r1_a/tests/test_app_r1a.py::test_kind_filter_narrows_to_token_scenarios PASSED [ 50%]
+mvps/r1_b/tests/test_app_r1b.py::test_app_runs_and_shows_results_after_click PASSED [ 66%]
+mvps/r1_b/tests/test_app_r1b.py::test_outcome_filter_narrows_results PASSED [ 83%]
+mvps/r1_b/tests/test_app_r1b.py::test_check_filter_narrows_to_dfa PASSED [100%]
+
+============================== 6 passed in 3.81s ===============================

@@ -1,0 +1,13 @@
+# Evidence audit — P05
+- Source items reviewed: 218
+- VERIFIED: 207, REJECTED: 11
+- Pain points (clusters): 204, multi-evidence: 3
+- Rejection reasons are rule-based (spam/bot, wrong domain, no domain keyword, excerpt too short).
+- HN keyword filtering was the main source of wrong-domain rejects (pilot + P04).
+- Independence groups use repo / HN item as the unit; same author cross-posting would still count once per repo, a known limitation.
+- AI: {'VERIFIED': 44, 'REJECTED': 1}
+- BIO: {'VERIFIED': 44}
+- FIN: {'VERIFIED': 45}
+- JOB: {'VERIFIED': 18, 'REJECTED': 5}
+- RES: {'VERIFIED': 32, 'REJECTED': 1}
+- UK: {'VERIFIED': 24, 'REJECTED': 4}

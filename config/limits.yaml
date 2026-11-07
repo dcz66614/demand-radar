@@ -1,0 +1,5 @@
+# Zero extra spend. Read-only public sources only.
+extra_spend_gbp: 0
+max_retries: 3
+user_agent: DemandRadarResearch/1.0
+reddit: DISABLED_PERMISSION

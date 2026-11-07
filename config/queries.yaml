@@ -1,0 +1,7 @@
+# 5 angles per domain (plan §3.3). Queries are prompts, not evidence.
+angles:
+  A: [manual steps, every time, takes hours]
+  B: [bug, fails when, cannot export]
+  C: [integration, sync, migration, format]
+  D: [feature request, missing support, workaround]
+  E: [confusing, documentation, setup, onboarding]

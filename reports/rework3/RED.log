@@ -1,0 +1,85 @@
+FFFF                                                                     [100%]
+=================================== FAILURES ===================================
+____________ test_parallel_stream_preserves_each_arguments_payload _____________
+
+    def test_parallel_stream_preserves_each_arguments_payload():
+        handler = StreamingHandler()
+        for event in _realistic_parallel_response_events():
+            handler.handle(event)
+        got = {x['function_call']['item']['id']: x['function_call']['arguments']
+               for x in handler.completed}
+>       assert got == {'fc_A': '{"q":"paris"}', 'fc_B': '{"x":2}'}, got
+E       AssertionError: {'fc_A': '', 'fc_B': ''}
+E       assert {'fc_A': '', 'fc_B': ''} == {'fc_A': '{"q...B': '{"x":2}'}
+E         
+E         Differing items:
+E         {'fc_A': ''} != {'fc_A': '{"q":"paris"}'}
+E         {'fc_B': ''} != {'fc_B': '{"x":2}'}
+E         
+E         Full diff:
+E           {
+E         -     'fc_A': '{"q":"paris"}',
+E         +     'fc_A': '',
+E         -     'fc_B': '{"x":2}',
+E         ?              -------
+E         +     'fc_B': '',
+E           }
+
+../Demand_Radar_REWORK2_Independent_Regression_Tests.py:41: AssertionError
+_______ test_expected_answer_only_must_not_mark_contradiction_as_correct _______
+
+    def test_expected_answer_only_must_not_mark_contradiction_as_correct():
+        status, passed, detail = check_factual_content(
+            'The capital of France is London.',
+            expected_answer='The capital of France is Paris.',
+        )
+>       assert not passed, (status, detail)
+E       AssertionError: ('ok', "response content matches the expected answer 'The capital of France is Paris.'")
+E       assert not True
+
+../Demand_Radar_REWORK2_Independent_Regression_Tests.py:49: AssertionError
+_____________ test_unsupported_schema_type_must_not_silently_pass ______________
+
+    def test_unsupported_schema_type_must_not_silently_pass():
+        status, passed, detail = _validate_payload(
+            {'expected_schema': {'n': 'integer'}}, {'n': True}
+        )
+>       assert not passed, (status, detail)
+E       AssertionError: ('ok', 'response valid')
+E       assert not True
+
+../Demand_Radar_REWORK2_Independent_Regression_Tests.py:56: AssertionError
+________________ test_nonfinite_float_is_not_valid_json_number _________________
+
+    def test_nonfinite_float_is_not_valid_json_number():
+        status, passed, detail = _validate_payload(
+            {'expected_schema': {'n': 'float'}}, {'n': float('nan')}
+        )
+>       assert not passed, (status, detail)
+E       AssertionError: ('ok', 'response valid')
+E       assert not True
+
+../Demand_Radar_REWORK2_Independent_Regression_Tests.py:63: AssertionError
+=========================== short test summary info ============================
+FAILED ../Demand_Radar_REWORK2_Independent_Regression_Tests.py::test_parallel_stream_preserves_each_arguments_payload - AssertionError: {'fc_A': '', 'fc_B': ''}
+assert {'fc_A': '', 'fc_B': ''} == {'fc_A': '{"q...B': '{"x":2}'}
+  
+  Differing items:
+  {'fc_A': ''} != {'fc_A': '{"q":"paris"}'}
+  {'fc_B': ''} != {'fc_B': '{"x":2}'}
+  
+  Full diff:
+    {
+  -     'fc_A': '{"q":"paris"}',
+  +     'fc_A': '',
+  -     'fc_B': '{"x":2}',
+  ?              -------
+  +     'fc_B': '',
+    }
+FAILED ../Demand_Radar_REWORK2_Independent_Regression_Tests.py::test_expected_answer_only_must_not_mark_contradiction_as_correct - AssertionError: ('ok', "response content matches the expected answer 'The capital of France is Paris.'")
+assert not True
+FAILED ../Demand_Radar_REWORK2_Independent_Regression_Tests.py::test_unsupported_schema_type_must_not_silently_pass - AssertionError: ('ok', 'response valid')
+assert not True
+FAILED ../Demand_Radar_REWORK2_Independent_Regression_Tests.py::test_nonfinite_float_is_not_valid_json_number - AssertionError: ('ok', 'response valid')
+assert not True
+4 failed in 0.06s

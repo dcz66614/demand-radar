@@ -1,0 +1,368 @@
+[
+  {
+    "name": "tokenizer-substitution-340",
+    "kind": "token_count",
+    "source_url": "https://github.com/ServiceNow/AgentLab/issues/340",
+    "note": "AgentLab #340: count_tokens substitutes GPT-4 tokenizer; measured +108.3% Chinese / +11.7% English / +18.5% Japanese / 0% code. Fixture overcounts are approximations (see overcount_pct).",
+    "cases": [
+      {
+        "case": "chinese-buggy",
+        "text": "调用大模型接口时，如果令牌计数错误，提示词会被错误地截断，导致智能体在执行多步骤任务时中途失败。",
+        "model": "litellm/qwen3-coder-30b",
+        "sut": "buggy",
+        "true_count": 48,
+        "gpt4_count": 92,
+        "overcount_pct": 0.917
+      },
+      {
+        "case": "chinese-correct",
+        "text": "调用大模型接口时，如果令牌计数错误，提示词会被错误地截断，导致智能体在执行多步骤任务时中途失败。",
+        "model": "litellm/qwen3-coder-30b",
+        "sut": "correct",
+        "true_count": 48,
+        "gpt4_count": 92,
+        "overcount_pct": 0.917
+      },
+      {
+        "case": "english-buggy",
+        "text": "The agent calls the model, counts the tokens, and checks the response carefully before it acts.",
+        "model": "litellm/qwen3-coder-30b",
+        "sut": "buggy",
+        "true_count": 19,
+        "gpt4_count": 21,
+        "overcount_pct": 0.105
+      },
+      {
+        "case": "english-correct",
+        "text": "The agent calls the model, counts the tokens, and checks the response carefully before it acts.",
+        "model": "litellm/qwen3-coder-30b",
+        "sut": "correct",
+        "true_count": 19,
+        "gpt4_count": 21,
+        "overcount_pct": 0.105
+      },
+      {
+        "case": "japanese-buggy",
+        "text": "APIを呼び出すとき、トークン数が間違っていると、プロンプトが切り捨てられ、エージェントは途中で失敗します。",
+        "model": "litellm/qwen3-coder-30b",
+        "sut": "buggy",
+        "true_count": 52,
+        "gpt4_count": 63,
+        "overcount_pct": 0.212
+      },
+      {
+        "case": "japanese-correct",
+        "text": "APIを呼び出すとき、トークン数が間違っていると、プロンプトが切り捨てられ、エージェントは途中で失敗します。",
+        "model": "litellm/qwen3-coder-30b",
+        "sut": "correct",
+        "true_count": 52,
+        "gpt4_count": 63,
+        "overcount_pct": 0.212
+      },
+      {
+        "case": "code-buggy",
+        "text": "def count_tokens(text, model):\n    return len(text.split())",
+        "model": "litellm/qwen3-coder-30b",
+        "sut": "buggy",
+        "true_count": 8,
+        "gpt4_count": 8,
+        "overcount_pct": 0.0
+      },
+      {
+        "case": "code-correct",
+        "text": "def count_tokens(text, model):\n    return len(text.split())",
+        "model": "litellm/qwen3-coder-30b",
+        "sut": "correct",
+        "true_count": 8,
+        "gpt4_count": 8,
+        "overcount_pct": 0.0
+      }
+    ]
+  },
+  {
+    "name": "streaming-completed-41708",
+    "kind": "streaming",
+    "source_url": "https://github.com/langchain-ai/langchain/issues/41708",
+    "case": "correct-handler",
+    "emit_on_done": true,
+    "events": [
+      {
+        "type": "response.output_item.added",
+        "item": {
+          "type": "function_call",
+          "name": "search",
+          "call_id": "call_1"
+        }
+      },
+      {
+        "type": "response.function_call_arguments.delta",
+        "delta": "{\"q\": "
+      },
+      {
+        "type": "response.function_call_arguments.delta",
+        "delta": "\"paris\"}"
+      },
+      {
+        "type": "response.output_item.done",
+        "item": {
+          "type": "function_call",
+          "name": "search",
+          "call_id": "call_1"
+        }
+      }
+    ]
+  },
+  {
+    "name": "streaming-completed-41708-buggy",
+    "kind": "streaming",
+    "source_url": "https://github.com/langchain-ai/langchain/issues/41708",
+    "case": "buggy-handler-41708",
+    "emit_on_done": false,
+    "events": [
+      {
+        "type": "response.output_item.added",
+        "item": {
+          "type": "function_call",
+          "name": "search",
+          "call_id": "call_1"
+        }
+      },
+      {
+        "type": "response.function_call_arguments.delta",
+        "delta": "{\"q\": "
+      },
+      {
+        "type": "response.function_call_arguments.delta",
+        "delta": "\"paris\"}"
+      },
+      {
+        "type": "response.output_item.done",
+        "item": {
+          "type": "function_call",
+          "name": "search",
+          "call_id": "call_1"
+        }
+      }
+    ]
+  },
+  {
+    "name": "streaming-no-done",
+    "kind": "streaming",
+    "source_url": "https://github.com/langchain-ai/langchain/issues/41710",
+    "case": "truncated-stream",
+    "emit_on_done": true,
+    "events": [
+      {
+        "type": "response.output_item.added",
+        "item": {
+          "type": "function_call",
+          "name": "search",
+          "call_id": "call_1"
+        }
+      },
+      {
+        "type": "response.function_call_arguments.delta",
+        "delta": "{\"q\": "
+      },
+      {
+        "type": "response.function_call_arguments.delta",
+        "delta": "\"paris\"}"
+      }
+    ]
+  },
+  {
+    "name": "retry-429-then-success",
+    "kind": "api_call",
+    "source_url": "https://github.com/ServiceNow/AgentLab/issues/182",
+    "steps": [
+      {
+        "call": "chat",
+        "model": "litellm/qwen3-coder-30b",
+        "fault": [
+          "http429",
+          null
+        ],
+        "expected_schema": {
+          "content": "str"
+        },
+        "response_content": "ok"
+      }
+    ]
+  },
+  {
+    "name": "retry-429-exhausted",
+    "kind": "api_call",
+    "source_url": "https://github.com/ServiceNow/AgentLab/issues/182",
+    "steps": [
+      {
+        "call": "chat",
+        "model": "litellm/qwen3-coder-30b",
+        "fault": "http429",
+        "expected_schema": {
+          "content": "str"
+        }
+      }
+    ]
+  },
+  {
+    "name": "timeout-exhausted",
+    "kind": "api_call",
+    "source_url": "https://github.com/ServiceNow/AgentLab/issues/182",
+    "steps": [
+      {
+        "call": "chat",
+        "model": "litellm/qwen3-coder-30b",
+        "fault": "timeout",
+        "expected_schema": {
+          "content": "str"
+        }
+      }
+    ]
+  },
+  {
+    "name": "server-error-500",
+    "kind": "api_call",
+    "source_url": "https://news.ycombinator.com/item?id=50382039",
+    "steps": [
+      {
+        "call": "chat",
+        "model": "litellm/qwen3-coder-30b",
+        "fault": "http500",
+        "expected_schema": {
+          "content": "str"
+        }
+      }
+    ]
+  },
+  {
+    "name": "malformed-response",
+    "kind": "api_call",
+    "source_url": "https://news.ycombinator.com/item?id=50382039",
+    "steps": [
+      {
+        "call": "chat",
+        "model": "litellm/qwen3-coder-30b",
+        "fault": "malformed_json",
+        "expected_schema": {
+          "content": "str"
+        }
+      }
+    ]
+  },
+  {
+    "name": "schema-violation",
+    "kind": "api_call",
+    "source_url": "https://github.com/langchain-ai/langchain/issues/41708",
+    "steps": [
+      {
+        "call": "chat",
+        "model": "litellm/qwen3-coder-30b",
+        "wrong_schema": true,
+        "expected_schema": {
+          "content": "str",
+          "citations": "list"
+        }
+      }
+    ]
+  },
+  {
+    "name": "token-budget",
+    "kind": "api_call",
+    "source_url": "https://github.com/ServiceNow/AgentLab/issues/340",
+    "steps": [
+      {
+        "call": "chat",
+        "model": "litellm/qwen3-coder-30b",
+        "prompt_tokens": 9000,
+        "max_tokens": 2000,
+        "token_budget": 10000,
+        "expected_schema": {
+          "content": "str"
+        }
+      }
+    ]
+  },
+  {
+    "name": "silent-trim",
+    "kind": "api_call",
+    "source_url": "https://github.com/ServiceNow/AgentLab/issues/340",
+    "steps": [
+      {
+        "call": "chat",
+        "model": "litellm/qwen3-coder-30b",
+        "silent_trim": true,
+        "prompt_tokens": 9000,
+        "max_tokens": 500,
+        "token_budget": 10000,
+        "expected_schema": {
+          "content": "str"
+        }
+      }
+    ]
+  },
+  {
+    "name": "false-response-openrouter",
+    "kind": "api_call",
+    "source_url": "https://news.ycombinator.com/item?id=50382039",
+    "steps": [
+      {
+        "call": "chat",
+        "model": "openrouter/model",
+        "fault": "false_response",
+        "latency_ms": 45000,
+        "expected_answer": "The capital of France is Paris.",
+        "expected_keywords": [
+          "paris"
+        ],
+        "forbidden_claims": [
+          "berlin"
+        ],
+        "expected_schema": {
+          "content": "str"
+        }
+      }
+    ]
+  },
+  {
+    "name": "true-response-openrouter",
+    "kind": "api_call",
+    "source_url": "https://news.ycombinator.com/item?id=50382039",
+    "steps": [
+      {
+        "call": "chat",
+        "model": "openrouter/model",
+        "response_content": "The capital of France is Paris.",
+        "latency_ms": 1200,
+        "expected_answer": "The capital of France is Paris.",
+        "expected_keywords": [
+          "paris"
+        ],
+        "forbidden_claims": [
+          "berlin"
+        ],
+        "expected_schema": {
+          "content": "str"
+        }
+      }
+    ]
+  },
+  {
+    "name": "hidden-default-substitution",
+    "kind": "api_call",
+    "source_url": "https://github.com/ServiceNow/AgentLab/issues/340",
+    "steps": [
+      {
+        "call": "count_tokens",
+        "model": "litellm/qwen3-coder-30b",
+        "prompt_text": "调用大模型接口时，如果令牌计数错误，提示词会被错误地截断，导致智能体在执行多步骤任务时中途失败。",
+        "prompt_tokens": 30,
+        "substitute_model": true,
+        "gpt4_tokens": 92,
+        "expected_schema": {
+          "content": "str",
+          "usage": "dict"
+        }
+      }
+    ]
+  }
+]

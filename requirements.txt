@@ -1,0 +1,9 @@
+# Runtime + dev/test dependencies (same ranges as pyproject.toml / P00 install)
+requests>=2.32,<3
+pydantic>=2.9,<3
+pandas>=2.2,<4
+streamlit>=1.40,<3
+rapidfuzz>=3.10,<4
+PyYAML>=6,<7
+pytest>=8,<10
+ruff>=0.7,<1

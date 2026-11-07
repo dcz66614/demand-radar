@@ -1,0 +1,4 @@
+source_id,merged_into_source_id,reason,reviewer,date
+b78ba1a33e866857e7fb,4ddd9295e5fa09371cc8,"similar title/excerpt >=92, same domain",reviewer,2026-11-05
+bc35c44ac13bfc92b202,eafda8ccacba428f833f,"similar title/excerpt >=92, same domain",reviewer,2026-11-05
+ffb4ae7d019e8930b11c,532008f3d00a1c68b878,"similar title/excerpt >=92, same domain",reviewer,2026-11-05

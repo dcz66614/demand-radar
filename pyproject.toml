@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "demand-radar"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = ["requests>=2.32,<3", "pydantic>=2.9,<3", "pandas>=2.2,<4", "streamlit>=1.40,<3", "rapidfuzz>=3.10,<4", "PyYAML>=6,<7"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+# Collector scripts intentionally catch broad exceptions and log them to
+# reports/source_failures.csv instead of crashing a batch; SIM103/RUF059
+# are style-only for these small scripts.
+ignore = ["BLE001", "SIM103", "S112", "RUF059"]
+
+[tool.ruff.lint.per-file-ignores]
+# tests/test_independent_r2.py is the frozen independent regression file
+# supplied by the REWORK3 audit (byte-identical copy, expectations must
+# not be edited to "fix" anything): its import order / unused import
+# are waived rather than editing the file.
+"tests/test_independent_r2.py" = ["I001", "F401", "RUF100"]
+# Same for tests/test_independent_r3.py — the frozen independent
+# regression file supplied by the REWORK3 fourth-round audit
+# (byte-identical copy, SHA 8c61b5f8...).
+"tests/test_independent_r3.py" = ["I001", "F401", "RUF100"]
+# Same for tests/test_post_r4_termination.py — the frozen independent
+# termination file supplied by the POST-R4 fifth-round audit
+# (byte-identical copy, SHA 244882a3...).
+"tests/test_post_r4_termination.py" = ["I001", "F401", "RUF100"]

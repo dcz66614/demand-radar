@@ -1,0 +1,9 @@
+2026-11-06 00:03:05.604 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+default rows rendered: 200
+default count line: 共 200 条（最多显示 200） · 仅显示 VERIFIED
+show-rejected rows rendered: 200
+show-rejected REJECTED rows visible: 17
+domain=AI rows rendered: 42
+platform=github rows rendered: 199
+keyword='token' rows rendered: 6
+WORKBENCH APPTEST: PASS

@@ -1,0 +1,6 @@
+pain_id,domain,old_score,old_e,old_s,old_f,old_g,old_l,new_score,new_e,new_s,new_f,new_g,new_l,direct_count,direct_orgs,direct_authors,raw_verified_urls,real_competitor_checks,unknown_competitor_checks,excluded_adjacent_evidence,excluded_detail
+0b7adcf63ec0f2075fab,FIN,70,20,20,15,10,5,30,10,20,0,0,0,1,1,1,4,0,2,5,ADJACENT_CONTEXT=0; DUPLICATE=1; OUT_OF_SCOPE=4; UNKNOWN=0
+4bb734fac7245033d327,BIO,70,20,20,15,10,5,30,10,20,0,0,0,12,1,8,19,1,1,7,ADJACENT_CONTEXT=3; DUPLICATE=0; OUT_OF_SCOPE=4; UNKNOWN=0
+6513d051954cbe1b5027,AI,70,20,20,15,10,5,45,15,20,0,10,0,2,2,2,19,2,0,17,ADJACENT_CONTEXT=4; DUPLICATE=3; OUT_OF_SCOPE=10; UNKNOWN=0
+cd021eac3c93ed0d2de1,BIO,70,20,20,15,10,5,35,15,20,0,0,0,10,2,9,16,1,1,6,ADJACENT_CONTEXT=2; DUPLICATE=0; OUT_OF_SCOPE=4; UNKNOWN=0
+e3091fb34139fdf57dbd,FIN,70,20,20,15,10,5,35,15,20,0,0,0,13,2,11,16,0,2,3,ADJACENT_CONTEXT=1; DUPLICATE=1; OUT_OF_SCOPE=1; UNKNOWN=0

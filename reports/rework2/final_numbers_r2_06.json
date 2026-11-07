@@ -1,0 +1,146 @@
+{
+  "source_items_total": 218,
+  "source_verified": 200,
+  "source_rejected": 18,
+  "source_by_domain": {
+    "AI/REJECTED": 3,
+    "AI/VERIFIED": 42,
+    "BIO/VERIFIED": 44,
+    "FIN/REJECTED": 3,
+    "FIN/VERIFIED": 42,
+    "JOB/REJECTED": 7,
+    "JOB/VERIFIED": 16,
+    "RES/VERIFIED": 33,
+    "UK/REJECTED": 5,
+    "UK/VERIFIED": 23
+  },
+  "pain_points_total": 221,
+  "pain_by_domain": {
+    "AI": 45,
+    "BIO": 46,
+    "FIN": 47,
+    "JOB": 21,
+    "RES": 35,
+    "UK": 27
+  },
+  "evidence_links_total": 369,
+  "evidence_review_status": {
+    "REJECTED": 13,
+    "VERIFIED": 356
+  },
+  "evidence_links_to_rejected_sources": 13,
+  "competitor_checks_total": 34,
+  "competitor_does_solve": 0,
+  "competitor_unknown_trails": 6,
+  "prd_cards": {
+    "SUPERSEDED": 17
+  },
+  "run_events": 80,
+  "problem_signatures": 5,
+  "evidence_assessment": {
+    "ADJACENT_CONTEXT": 10,
+    "DIRECT_SAME_PAIN": 38,
+    "DUPLICATE": 5,
+    "OUT_OF_SCOPE": 23
+  },
+  "workaround_status": {
+    "UNKNOWN": 221
+  },
+  "max_score": 45,
+  "n_score_ge_70": 0,
+  "score_distribution": {
+    "45": 3,
+    "40": 3,
+    "35": 3,
+    "30": 78,
+    "25": 2,
+    "20": 21,
+    "15": 103,
+    "10": 2,
+    "5": 6
+  },
+  "db_integrity": "ok",
+  "gate_qualified": 0,
+  "gate_not_qualified": 221,
+  "gate_fingerprint": "3d26137fd5e36e53ed08db7fea14c65d823c31dac3870b0e1386d8fe262fafe6",
+  "top_scores": [
+    {
+      "pain_id": "28ccf8f8701bb84bf95b",
+      "score": 45,
+      "failure_reason": "score 45 < 70"
+    },
+    {
+      "pain_id": "6513d051954cbe1b5027",
+      "score": 45,
+      "failure_reason": "score 45 < 70"
+    },
+    {
+      "pain_id": "da75a85dbf1cb9f121cc",
+      "score": 45,
+      "failure_reason": "score 45 < 70"
+    },
+    {
+      "pain_id": "3955670369ee96d7b5d6",
+      "score": 40,
+      "failure_reason": "score 40 < 70; only 1 independent org(s), need >= 2"
+    },
+    {
+      "pain_id": "908f662d8a749944fb20",
+      "score": 40,
+      "failure_reason": "score 40 < 70; only 1 independent org(s), need >= 2"
+    }
+  ],
+  "score_diff_rows": 5,
+  "evidence_assessment_rows": 76,
+  "direct_links_by_theme": {
+    "0b7adcf63ec0f2075fab": [
+      "https://github.com/dgunning/edgartools/issues/1848"
+    ],
+    "4bb734fac7245033d327": [
+      "https://github.com/neuropsychology/NeuroKit/issues/1163",
+      "https://github.com/neuropsychology/NeuroKit/issues/1182",
+      "https://github.com/neuropsychology/NeuroKit/issues/1183",
+      "https://github.com/neuropsychology/NeuroKit/issues/1196",
+      "https://github.com/neuropsychology/NeuroKit/issues/1200",
+      "https://github.com/neuropsychology/NeuroKit/issues/1208",
+      "https://github.com/neuropsychology/NeuroKit/issues/1212",
+      "https://github.com/neuropsychology/NeuroKit/issues/1230",
+      "https://github.com/neuropsychology/NeuroKit/issues/1238",
+      "https://github.com/neuropsychology/NeuroKit/issues/1240",
+      "https://github.com/neuropsychology/NeuroKit/issues/1241",
+      "https://github.com/neuropsychology/NeuroKit/issues/1242"
+    ],
+    "6513d051954cbe1b5027": [
+      "https://github.com/ServiceNow/AgentLab/issues/340",
+      "https://github.com/langchain-ai/langchain/issues/41708"
+    ],
+    "cd021eac3c93ed0d2de1": [
+      "https://github.com/MIT-LCP/wfdb-python/issues/515",
+      "https://github.com/MIT-LCP/wfdb-python/issues/522",
+      "https://github.com/MIT-LCP/wfdb-python/issues/524",
+      "https://github.com/MIT-LCP/wfdb-python/issues/528",
+      "https://github.com/MIT-LCP/wfdb-python/issues/543",
+      "https://github.com/MIT-LCP/wfdb-python/issues/554",
+      "https://github.com/MIT-LCP/wfdb-python/issues/593",
+      "https://github.com/MIT-LCP/wfdb-python/issues/618",
+      "https://github.com/mne-tools/mne-python/issues/14431",
+      "https://github.com/mne-tools/mne-python/issues/14460"
+    ],
+    "e3091fb34139fdf57dbd": [
+      "https://github.com/openbq-org/OpenBB/issues/7645",
+      "https://github.com/openbq-org/OpenBB/issues/7650",
+      "https://github.com/openbq-org/OpenBB/issues/7655",
+      "https://github.com/openbq-org/OpenBB/issues/7656",
+      "https://github.com/openbq-org/OpenBB/issues/7813",
+      "https://github.com/ranaroussi/yfinance/issues/2930",
+      "https://github.com/ranaroussi/yfinance/issues/2931",
+      "https://github.com/ranaroussi/yfinance/issues/2937",
+      "https://github.com/ranaroussi/yfinance/issues/2939",
+      "https://github.com/ranaroussi/yfinance/issues/2963",
+      "https://github.com/ranaroussi/yfinance/issues/2964",
+      "https://github.com/ranaroussi/yfinance/issues/2997",
+      "https://github.com/ranaroussi/yfinance/issues/3004"
+    ]
+  },
+  "prd_cards_md_missing": 0
+}

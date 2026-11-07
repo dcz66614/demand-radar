@@ -1,0 +1,70 @@
+FFFFF                                                                    [100%]
+=================================== FAILURES ===================================
+_______________ test_rsa_correct_negative_log_variance_must_pass _______________
+
+    def test_rsa_correct_negative_log_variance_must_pass() -> None:
+        periods = _small_variation_periods()
+        expected = rsa_from_period(periods)
+        assert expected < 0  # log(variance in ms^2) can be negative
+>       assert check_rsa(periods, expected).passed is True
+E       AssertionError: assert False is True
+E        +  where False = CheckResult(case='rsa-heart-period', check='rsa', passed=False, measured='reported RSA -6.32 ln(ms^2)', expected='RSA ...ropsychology/NeuroKit/issues/1230', detail='reported RSA differs from the heart-period value by -0.0% and is negative').passed
+E        +    where CheckResult(case='rsa-heart-period', check='rsa', passed=False, measured='reported RSA -6.32 ln(ms^2)', expected='RSA ...ropsychology/NeuroKit/issues/1230', detail='reported RSA differs from the heart-period value by -0.0% and is negative') = check_rsa([1000.0, 1000.0382683432365, 1000.0707106781186, 1000.0923879532511, 1000.1, 1000.0923879532511, ...], -6.321501084325317)
+
+tests/test_rework2_adversarial.py:33: AssertionError
+___________________ test_rsa_million_mismatch_must_not_pass ____________________
+
+    def test_rsa_million_mismatch_must_not_pass() -> None:
+        periods = _small_variation_periods()
+        assert rsa_from_period(periods) < 0
+>       assert check_rsa(periods, 1_000_000).passed is False
+E       AssertionError: assert True is False
+E        +  where True = CheckResult(case='rsa-heart-period', check='rsa', passed=True, measured='reported RSA 1000000.00 ln(ms^2)', expected='...ource_url='https://github.com/neuropsychology/NeuroKit/issues/1230', detail='RSA matches the heart-period computation').passed
+E        +    where CheckResult(case='rsa-heart-period', check='rsa', passed=True, measured='reported RSA 1000000.00 ln(ms^2)', expected='...ource_url='https://github.com/neuropsychology/NeuroKit/issues/1230', detail='RSA matches the heart-period computation') = check_rsa([1000.0, 1000.0382683432365, 1000.0707106781186, 1000.0923879532511, 1000.1, 1000.0923879532511, ...], 1000000)
+
+tests/test_rework2_adversarial.py:39: AssertionError
+_________________ test_rsp_phase_extra_duration_must_not_pass __________________
+
+    def test_rsp_phase_extra_duration_must_not_pass() -> None:
+        check = check_rsp_phase([(0, 100), (100, 200)], 100, [1, 1, 999], "samples")
+>       assert check.passed is False
+E       AssertionError: assert True is False
+E        +  where True = CheckResult(case='rsp-phase-durations', check='rsp_phase', passed=True, measured='reported [1, 1, 999] s (index unit: ...ce_url='https://github.com/neuropsychology/NeuroKit/issues/1196', detail='phase durations match the time-based values').passed
+
+tests/test_rework2_adversarial.py:44: AssertionError
+__________________ test_schema_boolean_cannot_satisfy_integer __________________
+
+    def test_schema_boolean_cannot_satisfy_integer() -> None:
+        status, passed, _ = _validate_payload({"expected_schema": {"n": "int"}}, {"n": True})
+>       assert status == "wrong-result"
+E       AssertionError: assert 'ok' == 'wrong-result'
+E         
+E         - wrong-result
+E         + ok
+
+tests/test_rework2_adversarial.py:49: AssertionError
+______________ test_two_completed_function_calls_are_not_dropped _______________
+
+    def test_two_completed_function_calls_are_not_dropped() -> None:
+        events = [
+            {"type": "response.output_item.added", "item": {"type": "function_call", "id": "a", "name": "A"}},
+            {"type": "response.output_item.added", "item": {"type": "function_call", "id": "b", "name": "B"}},
+            {"type": "response.output_item.done", "item": {"type": "function_call", "id": "a"}},
+            {"type": "response.output_item.done", "item": {"type": "function_call", "id": "b"}},
+        ]
+        handler = StreamingHandler()
+        for event in events:
+            handler.handle(event)
+>       assert len(handler.completed) == 2
+E       AssertionError: assert 1 == 2
+E        +  where 1 = len([{'type': 'completed', 'function_call': {'item': {'type': 'function_call', 'id': 'b', 'name': 'B'}, 'arguments': ''}}])
+E        +    where [{'type': 'completed', 'function_call': {'item': {'type': 'function_call', 'id': 'b', 'name': 'B'}, 'arguments': ''}}] = <validator.StreamingHandler object at 0x705a97dd66c0>.completed
+
+tests/test_rework2_adversarial.py:63: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_rework2_adversarial.py::test_rsa_correct_negative_log_variance_must_pass
+FAILED tests/test_rework2_adversarial.py::test_rsa_million_mismatch_must_not_pass
+FAILED tests/test_rework2_adversarial.py::test_rsp_phase_extra_duration_must_not_pass
+FAILED tests/test_rework2_adversarial.py::test_schema_boolean_cannot_satisfy_integer
+FAILED tests/test_rework2_adversarial.py::test_two_completed_function_calls_are_not_dropped
+5 failed in 0.08s

@@ -1,0 +1,409 @@
++ cd /home/hatch/workspace/clean-test-p2a
++ unzip -q /tmp/demand-radar-p2a-pass1.zip
++ cd demand-radar-p2a
++ python3 -m venv .venv
++ .venv/bin/python -m pip install -q -r requirements.txt
++ .venv/bin/python -m pip install -q -e . --no-deps
++ .venv/bin/python -m demand_radar init
+created /home/hatch/workspace/clean-test-p2a/demand-radar-p2a/data/demand_radar.sqlite
++ .venv/bin/python -m demand_radar score
+scored 221 pains -> /home/hatch/workspace/clean-test-p2a/demand-radar-p2a/reports/ranking.csv
++ .venv/bin/python -m demand_radar report --stage final
+{
+  "source_items": 218,
+  "pain_points": 221,
+  "evidence_links": 369,
+  "by_domain": {
+    "AI": 45,
+    "BIO": 44,
+    "FIN": 45,
+    "JOB": 23,
+    "RES": 33,
+    "UK": 28
+  },
+  "stage": "final",
+  "stage_meaning": "P10 final QA: full funnel, PRDs, MVPs"
+}
++ .venv/bin/python -m demand_radar export --format csv
+exported 200 rows to /home/hatch/workspace/clean-test-p2a/demand-radar-p2a/data/exports/source_items.csv
++ .venv/bin/python -m demand_radar export --format json
+exported 200 rows to /home/hatch/workspace/clean-test-p2a/demand-radar-p2a/data/exports/source_items.json
++ .venv/bin/python -m demand_radar export --format csv --all
+exported 218 rows to /home/hatch/workspace/clean-test-p2a/demand-radar-p2a/data/exports/source_items.csv
++ .venv/bin/python -m demand_radar export --format csv
+exported 200 rows to /home/hatch/workspace/clean-test-p2a/demand-radar-p2a/data/exports/source_items.csv
++ cmp reports/ranking.csv reports/rework2/ranking_r2_04.csv
++ echo RANKING-BYTE-IDENTICAL
+RANKING-BYTE-IDENTICAL
++ .venv/bin/python -c 'import sqlite3; c=sqlite3.connect('\''data/demand_radar.sqlite'\''); print('\''integrity:'\'', c.execute('\''PRAGMA integrity_check'\'').fetchone()[0]); print('\''fk:'\'', len(c.execute('\''PRAGMA foreign_key_check'\'').fetchall())); print('\''sources:'\'', c.execute('\''SELECT COUNT(*) FROM source_items'\'').fetchone()[0])'
+integrity: ok
+fk: 0
+sources: 218
++ .venv/bin/python -m pytest tests/test_rework2_adversarial.py tests/test_independent_r2.py tests/test_independent_r3.py tests/test_post_r4_termination.py -q
+..........................                                               [100%]
+26 passed in 0.11s
++ .venv/bin/python -m pytest -q
+................sssssss................................................. [ 20%]
+........................................................................ [ 40%]
+........................................................................ [ 61%]
+........................................................................ [ 81%]
+.................................................................        [100%]
+346 passed, 8 skipped in 5.86s
++ .venv/bin/python -m ruff check .
+All checks passed!
++ sha256sum -c reports/p2a/MANIFEST.sha256
+./.gitignore: OK
+./AUDIT.md: OK
+./Demand_Radar_Execution_Plan_v1.0.md: OK
+./Demand_Radar_Full_Audit_2026-11-05.md: OK
+./Demand_Radar_Muse_REWORK2_Brief_2026-11-05.md: OK
+./Demand_Radar_Muse_Rework_2026-11-05.md: OK
+./Demand_Radar_Project_Charter_v1.0.md: OK
+./Demand_Radar_REWORK1_Independent_Review_2026-11-05.md: OK
+./README.md: OK
+./README_P2A.md: OK
+./README_POST_R4.md: OK
+./README_REWORK2.md: OK
+./README_REWORK3.md: OK
+./README_REWORK4.md: OK
+./REWORK3.md: OK
+./app/streamlit_app.py: OK
+./collect_expand.py: OK
+./collect_pilot.py: OK
+./config/domains.yaml: OK
+./config/limits.yaml: OK
+./config/queries.yaml: OK
+./config/sources.yaml: OK
+./data/demand_radar.sqlite: OK
+./data/exports/source_items.csv: OK
+./data/exports/source_items.json: OK
+./data/inbox/AI/batch1.jsonl: OK
+./data/inbox/AI/pilot.jsonl: OK
+./data/inbox/BIO/batch1.jsonl: OK
+./data/inbox/BIO/pilot.jsonl: OK
+./data/inbox/FIN/batch1.jsonl: OK
+./data/inbox/FIN/pilot.jsonl: OK
+./data/inbox/JOB/batch1.jsonl: OK
+./data/inbox/JOB/pilot.jsonl: OK
+./data/inbox/RES/batch1.jsonl: OK
+./data/inbox/RES/pilot.jsonl: OK
+./data/inbox/UK/batch1.jsonl: OK
+./data/inbox/UK/pilot.jsonl: OK
+./mvps/r1_a/README.md: OK
+./mvps/r1_a/app.py: OK
+./mvps/r1_a/data/fixtures.json: OK
+./mvps/r1_a/make_fixtures.py: OK
+./mvps/r1_a/real_tokenizer.py: OK
+./mvps/r1_a/tests/test_app_r1a.py: OK
+./mvps/r1_a/tests/test_real_paths.py: OK
+./mvps/r1_a/tests/test_validator.py: OK
+./mvps/r1_a/validator.py: OK
+./mvps/r1_b/README.md: OK
+./mvps/r1_b/app.py: OK
+./mvps/r1_b/data/README.md: OK
+./mvps/r1_b/data/cases.json: OK
+./mvps/r1_b/data/mitdb_100_10s.atr: OK
+./mvps/r1_b/data/mitdb_100_10s.dat: OK
+./mvps/r1_b/data/mitdb_100_10s.hea: OK
+./mvps/r1_b/make_fixtures.py: OK
+./mvps/r1_b/real_upstream.py: OK
+./mvps/r1_b/signalcheck.py: OK
+./mvps/r1_b/tests/test_app_r1b.py: OK
+./mvps/r1_b/tests/test_real_upstream.py: OK
+./mvps/r1_b/tests/test_signalcheck.py: OK
+./mvps/superseded/mvp_a/README.md: OK
+./mvps/superseded/mvp_a/app.py: OK
+./mvps/superseded/mvp_a/data/sample.jsonl: OK
+./mvps/superseded/mvp_a/tests/test_triage.py: OK
+./mvps/superseded/mvp_a/triage.py: OK
+./mvps/superseded/mvp_b/README.md: OK
+./mvps/superseded/mvp_b/app.py: OK
+./mvps/superseded/mvp_b/data/sample.csv: OK
+./mvps/superseded/mvp_b/tests/test_trace.py: OK
+./mvps/superseded/mvp_b/trace.py: OK
+./progress/STATUS.md: OK
+./progress/decisions.md: OK
+./pyproject.toml: OK
+./reports/coverage_report.md: OK
+./reports/duplicates.csv: OK
+./reports/environment.md: OK
+./reports/evidence_audit.md: OK
+./reports/final_report_p2a.md: OK
+./reports/final_report_rework4.md: OK
+./reports/full_retest_2026-11-05.md: OK
+./reports/mvp_selection.json: OK
+./reports/p2a/build_zip.py: OK
+./reports/p2a/decision_log.jsonl: OK
+./reports/p2a/gen_manifest.py: OK
+./reports/p2a/p2a_01_02.md: OK
+./reports/p2a/p2a_03.md: OK
+./reports/p2a/random_check_p2a.txt: OK
+./reports/pilot_report.md: OK
+./reports/post_r4/MANIFEST.sha256: OK
+./reports/post_r4/SOURCE_HASHES_p0_00.txt: OK
+./reports/post_r4/build_zip.py: OK
+./reports/post_r4/clean_room_p0.txt: OK
+./reports/post_r4/decision_log.jsonl: OK
+./reports/post_r4/full_suite_p0_00_baseline.txt: OK
+./reports/post_r4/full_suite_p0_main.txt: OK
+./reports/post_r4/gen_manifest.py: OK
+./reports/post_r4/p0_01_02_03.md: OK
+./reports/post_r4/p0_04.md: OK
+./reports/post_r4/p0_05.md: OK
+./reports/post_r4/p0_qa.md: OK
+./reports/post_r4/pip_freeze_p0_main.txt: OK
+./reports/post_r4/pip_freeze_p0_real.txt: OK
+./reports/post_r4/random_check_p0.txt: OK
+./reports/post_r4/red_log_p0_00.txt: OK
+./reports/prds/superseded/PRD_0b7adcf63ec0f2075fab.md: OK
+./reports/prds/superseded/PRD_0b7adcf63ec0f2075fab_r1.md: OK
+./reports/prds/superseded/PRD_28ccf8f8701bb84bf95b.md: OK
+./reports/prds/superseded/PRD_3955670369ee96d7b5d6.md: OK
+./reports/prds/superseded/PRD_46c4f297fe1033b95248.md: OK
+./reports/prds/superseded/PRD_4bb734fac7245033d327.md: OK
+./reports/prds/superseded/PRD_4bb734fac7245033d327_r1.md: OK
+./reports/prds/superseded/PRD_5d10a3095668d0928fe2.md: OK
+./reports/prds/superseded/PRD_6513d051954cbe1b5027.md: OK
+./reports/prds/superseded/PRD_6513d051954cbe1b5027_r1.md: OK
+./reports/prds/superseded/PRD_6a7abaf0c0655b39aa36.md: OK
+./reports/prds/superseded/PRD_908f662d8a749944fb20.md: OK
+./reports/prds/superseded/PRD_bdef2d35b09f45a0e94a.md: OK
+./reports/prds/superseded/PRD_c37a39eaf9fb6a9805a2.md: OK
+./reports/prds/superseded/PRD_cd021eac3c93ed0d2de1.md: OK
+./reports/prds/superseded/PRD_cd021eac3c93ed0d2de1_r1.md: OK
+./reports/prds/superseded/PRD_da75a85dbf1cb9f121cc.md: OK
+./reports/prds/superseded/PRD_df72dcf35dc9db2c24b5.md: OK
+./reports/prds/superseded/PRD_e3091fb34139fdf57dbd.md: OK
+./reports/prds/superseded/PRD_e3091fb34139fdf57dbd_r1.md: OK
+./reports/prds/superseded/PRD_e5fd57ab0f0c20381e36.md: OK
+./reports/prds/superseded/PRD_fcaac0fde92e53b85f19.md: OK
+./reports/ranking.csv: OK
+./reports/rework1/EVIDENCE_ARCHIVE_NOTE.md: OK
+./reports/rework1/MANIFEST.sha256: OK
+./reports/rework1/STATUS.md: OK
+./reports/rework1/build_prds_r05.py: OK
+./reports/rework1/build_verdicts_r02.py: OK
+./reports/rework1/competitor_checks.jsonl: OK
+./reports/rework1/competitors.md: OK
+./reports/rework1/decision_log.jsonl: OK
+./reports/rework1/evidence_recheck_r07.csv: OK
+./reports/rework1/fetch_closed_meta_r02.py: OK
+./reports/rework1/fetch_closed_meta_r02b.py: OK
+./reports/rework1/fetch_live_r02.py: OK
+./reports/rework1/fix_r07_findings.py: OK
+./reports/rework1/not_qualified.csv: OK
+./reports/rework1/pip_freeze_cleanroom.txt: OK
+./reports/rework1/qualifying_prds.csv: OK
+./reports/rework1/r01.md: OK
+./reports/rework1/r02.md: OK
+./reports/rework1/r03.md: OK
+./reports/rework1/r04.md: OK
+./reports/rework1/r05.md: OK
+./reports/rework1/r06.md: OK
+./reports/rework1/r07.md: OK
+./reports/rework1/rank_diff.md: OK
+./reports/rework1/ranking.csv: OK
+./reports/rework1/ranking_original.csv: OK
+./reports/rework1/review_r02.jsonl: OK
+./reports/rework1/review_r02.md: OK
+./reports/rework1/review_r02_raw_closed.json: OK
+./reports/rework1/review_r02_raw_hn.json: OK
+./reports/rework1/review_r02_working.json: OK
+./reports/rework1/run_events.jsonl: OK
+./reports/rework1/run_gate_r05.py: OK
+./reports/rework2/MANIFEST.sha256: OK
+./reports/rework2/align_prd_cards_r2_06.py: OK
+./reports/rework2/apptest_mvp_r2_02_main.log: OK
+./reports/rework2/apptest_mvp_r2_02_numpy23.log: OK
+./reports/rework2/apptest_workbench_r2_02.py: OK
+./reports/rework2/apptest_workbench_r2_02_main.log: OK
+./reports/rework2/apptest_workbench_r2_02_numpy23.log: OK
+./reports/rework2/assess_r2_03.py: OK
+./reports/rework2/build_mvp_selection_r2_06.py: OK
+./reports/rework2/build_score_diff_r2_04.py: OK
+./reports/rework2/competitor_checks_before_r2_04.jsonl: OK
+./reports/rework2/competitor_checks_r2_04.jsonl: OK
+./reports/rework2/compute_final_numbers.py: OK
+./reports/rework2/decision_log.jsonl: OK
+./reports/rework2/evidence_assessment.csv: OK
+./reports/rework2/final_numbers_r2_06.json: OK
+./reports/rework2/final_numbers_r2_06_stdout.txt: OK
+./reports/rework2/full_suite_r2_01.txt: OK
+./reports/rework2/full_suite_r2_02_main.txt: OK
+./reports/rework2/full_suite_r2_02_main_after_timeout_fix.txt: OK
+./reports/rework2/full_suite_r2_02_numpy23.txt: OK
+./reports/rework2/full_suite_r2_02_numpy23_after_timeout_fix.txt: OK
+./reports/rework2/full_suite_r2_06_main.txt: OK
+./reports/rework2/full_suite_r2_06_main_baseline.txt: OK
+./reports/rework2/full_suite_r2_06_real.txt: OK
+./reports/rework2/full_suite_r2_06_real_baseline.txt: OK
+./reports/rework2/green_log_r2_01.txt: OK
+./reports/rework2/mvp_selection_before_r2_06.json: OK
+./reports/rework2/mvp_selection_r2_04.json: OK
+./reports/rework2/not_qualified_r2_04.csv: OK
+./reports/rework2/pip_freeze_r2_02_main.txt: OK
+./reports/rework2/pip_freeze_r2_02_numpy23.txt: OK
+./reports/rework2/pip_freeze_r2_06_main.txt: OK
+./reports/rework2/pip_freeze_r2_06_real.txt: OK
+./reports/rework2/qualifying_prds_r2_04.csv: OK
+./reports/rework2/r2_01.md: OK
+./reports/rework2/r2_02.md: OK
+./reports/rework2/r2_03.md: OK
+./reports/rework2/r2_04.md: OK
+./reports/rework2/r2_05.md: OK
+./reports/rework2/r2_06.md: OK
+./reports/rework2/ranking_old.csv: OK
+./reports/rework2/ranking_r2_04.csv: OK
+./reports/rework2/red_log_r2_01.txt: OK
+./reports/rework2/rederive_scores_r2_04.py: OK
+./reports/rework2/reverify_competitors_r2_04.py: OK
+./reports/rework2/ruff_r2_06.txt: OK
+./reports/rework2/ruff_r2_06_main.txt: OK
+./reports/rework2/run_gate_r2_04.py: OK
+./reports/rework2/score_diff.csv: OK
+./reports/rework2/score_old_snapshot.csv: OK
+./reports/rework3/CORE_TESTS.log: OK
+./reports/rework3/MANIFEST.sha256: OK
+./reports/rework3/RED.log: OK
+./reports/rework3/SOURCE_HASHES_r3_00.txt: OK
+./reports/rework3/decision_log.jsonl: OK
+./reports/rework3/full_suite_r3_main.txt: OK
+./reports/rework3/full_suite_r3_real.txt: OK
+./reports/rework3/pip_freeze_r3_main.txt: OK
+./reports/rework3/pip_freeze_r3_real.txt: OK
+./reports/rework3/r3_01_02_03.md: OK
+./reports/rework3/r3_04.md: OK
+./reports/rework3/r3_05.md: OK
+./reports/rework3/r3_qa.md: OK
+./reports/rework3/red_log_r3_00.txt: OK
+./reports/rework4/MANIFEST.sha256: OK
+./reports/rework4/SOURCE_HASHES_r4_00.txt: OK
+./reports/rework4/decision_log.jsonl: OK
+./reports/rework4/full_suite_r4_00_baseline.txt: OK
+./reports/rework4/full_suite_r4_main.txt: OK
+./reports/rework4/full_suite_r4_real.txt: OK
+./reports/rework4/green_log_r4.txt: OK
+./reports/rework4/pip_freeze_r4_main.txt: OK
+./reports/rework4/pip_freeze_r4_real.txt: OK
+./reports/rework4/r4_01_02_03.md: OK
+./reports/rework4/r4_04.md: OK
+./reports/rework4/r4_05.md: OK
+./reports/rework4/r4_qa.md: OK
+./reports/rework4/red_log_r4_00.txt: OK
+./reports/source_failures.csv: OK
+./reports/superseded/STATUS.md: OK
+./reports/superseded/STATUS_rework2.md: OK
+./reports/superseded/STATUS_rework3.md: OK
+./reports/superseded/STATUS_rework4.md: OK
+./reports/superseded/final_report.md: OK
+./reports/superseded/final_report_post_r4.md: OK
+./reports/superseded/final_report_rework2.md: OK
+./reports/superseded/final_report_rework3.md: OK
+./reports/superseded/final_report_rework4.md: OK
+./reports/theme_clusters.md: OK
+./requirements-lock.txt: OK
+./requirements.txt: OK
+./review_p05.py: OK
+./score_prd.py: OK
+./src/demand_radar/__init__.py: OK
+./src/demand_radar/__main__.py: OK
+./src/demand_radar/collectors/__init__.py: OK
+./src/demand_radar/collectors/github_issues.py: OK
+./src/demand_radar/collectors/hackernews.py: OK
+./src/demand_radar/competitors.py: OK
+./src/demand_radar/db.py: OK
+./src/demand_radar/dedupe.py: OK
+./src/demand_radar/evidence_assessment.py: OK
+./src/demand_radar/extract.py: OK
+./src/demand_radar/ingest.py: OK
+./src/demand_radar/models.py: OK
+./src/demand_radar/normalize.py: OK
+./src/demand_radar/prd.py: OK
+./src/demand_radar/schema.sql: OK
+./src/demand_radar/score.py: OK
+./src/demand_radar/selection.py: OK
+./tests/conftest.py: OK
+./tests/test_cli.py: OK
+./tests/test_collectors.py: OK
+./tests/test_competitors.py: OK
+./tests/test_evidence_assessment.py: OK
+./tests/test_extract.py: OK
+./tests/test_hn_collector.py: OK
+./tests/test_independence.py: OK
+./tests/test_independent_r2.py: OK
+./tests/test_independent_r3.py: OK
+./tests/test_ingest.py: OK
+./tests/test_models.py: OK
+./tests/test_mvp_selection_r2_06.py: OK
+./tests/test_p2a_contract.py: OK
+./tests/test_post_r4_contract.py: OK
+./tests/test_post_r4_termination.py: OK
+./tests/test_prd.py: OK
+./tests/test_r07_fixes.py: OK
+./tests/test_rework2_adversarial.py: OK
+./tests/test_rework3_contract.py: OK
+./tests/test_rework4_contract.py: OK
+./tests/test_score.py: OK
+./tests/test_scoring_r2_04.py: OK
+./tests/test_selection.py: OK
+./tests/test_status.py: OK
+./theme_cluster.py: OK
++ python3 -m venv .venv-real
++ .venv-real/bin/python -m pip install -q -r requirements.txt
++ .venv-real/bin/python -m pip install -q -e . --no-deps
++ .venv-real/bin/python -m pip install -q tiktoken==0.14.0 neurokit2==0.3.0 wfdb==4.3.1 scipy==1.18.1 scikit-learn==1.9.1 matplotlib==3.11.2
++ .venv-real/bin/python -m pytest -q
+........................................................................ [ 19%]
+........................................................................ [ 39%]
+........................................................................ [ 59%]
+........................................................................ [ 79%]
+........................................................................ [ 99%]
+...                                                                      [100%]
+=============================== warnings summary ===============================
+.venv-real/lib/python3.12/site-packages/wfdb/io/annotation.py:3062
+  /home/hatch/workspace/clean-test-p2a/demand-radar-p2a/.venv-real/lib/python3.12/site-packages/wfdb/io/annotation.py:3062: Pandas4Warning: The inplace keyword in DataFrame.set_index is deprecated and will be removed in a future version (PDEP-8).
+  See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+    ann_class_table.set_index(
+
+.venv-real/lib/python3.12/site-packages/wfdb/io/annotation.py:3232
+  /home/hatch/workspace/clean-test-p2a/demand-radar-p2a/.venv-real/lib/python3.12/site-packages/wfdb/io/annotation.py:3232: Pandas4Warning: The inplace keyword in DataFrame.set_index is deprecated and will be removed in a future version (PDEP-8).
+  See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+    ann_label_table.set_index(ann_label_table["label_store"].values, inplace=True)
+
+mvps/r1_b/tests/test_real_upstream.py::test_real_rsa_crosscheck_agrees_in_sign_and_magnitude
+mvps/r1_b/tests/test_real_upstream.py::test_run_all_real_returns_nine_rows_with_known_outcomes
+  /home/hatch/workspace/clean-test-p2a/demand-radar-p2a/.venv-real/lib/python3.12/site-packages/neurokit2/hrv/hrv_rsa.py:563: NeuroKitWarning: RSP signal not found. For this time, we will derive RSP signal from ECG using ecg_rsp(). But the results are definitely not reliable, so please provide a real RSP signal.
+    warn(
+
+mvps/r1_b/tests/test_real_upstream.py::test_real_ecg_record_excerpt_detects_annotated_beats
+mvps/r1_b/tests/test_real_upstream.py::test_run_all_real_returns_nine_rows_with_known_outcomes
+  /home/hatch/workspace/clean-test-p2a/demand-radar-p2a/.venv-real/lib/python3.12/site-packages/wfdb/io/annotation.py:1472: Pandas4Warning: The inplace keyword in DataFrame.set_index is deprecated and will be removed in a future version (PDEP-8).
+  See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+    label_map.set_index(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+363 passed, 6 warnings in 23.01s
++ .venv/bin/python -m pip freeze
++ .venv-real/bin/python -m pip freeze
++ .venv/bin/python -m streamlit run src/demand_radar/workbench.py --server.headless true --server.port 8511
++ sleep 25
++ .venv/bin/python -m streamlit run mvps/r1_a/app.py --server.headless true --server.port 8512
++ .venv/bin/python -m streamlit run mvps/r1_b/app.py --server.headless true --server.port 8513
++ for p in 8511 8512 8513
++ echo -n 'port 8511: '
+port 8511: + curl -s -o /dev/null -w '%{http_code}\n' http://127.0.0.1:8511/
+000
++ for p in 8511 8512 8513
++ echo -n 'port 8512: '
+port 8512: + curl -s -o /dev/null -w '%{http_code}\n' http://127.0.0.1:8512/
+200
++ for p in 8511 8512 8513
++ echo -n 'port 8513: '
+port 8513: + curl -s -o /dev/null -w '%{http_code}\n' http://127.0.0.1:8513/
+200
++ pkill -f 'streamlit run'
++ echo CLEAN-ROOM-DONE
+CLEAN-ROOM-DONE
+
+--- addendum (builder, 2026-11-07 ~02:20 GMT) ---
+The scripted workbench check used the wrong path (src/demand_radar/workbench.py, which does not exist) and returned 000. Re-run against the same clean-room extract with the correct path app/streamlit_app.py: HTTP 200. The other two apps returned 200 in the scripted run. All three apps are 200.

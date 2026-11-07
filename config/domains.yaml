@@ -1,0 +1,8 @@
+domains: [AI, RES, BIO, FIN, JOB, UK]
+# Seed repos (plan §3.2) — starting points only, not pre-judged demand.
+AI: [microsoft/markitdown, ServiceNow/AgentLab]
+RES: [jupyterlab/jupyterlab, microsoft/markitdown]
+BIO: [neuropsychology/NeuroKit, MIT-LCP/wfdb-python]
+FIN: [dgunning/edgartools, openbb-finance/OpenBB]
+JOB: [speedyapply/JobSpy]
+UK: [planarnetwork/gb-transit, opentripplanner/OpenTripPlanner]

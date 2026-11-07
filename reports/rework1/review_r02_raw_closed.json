@@ -1,0 +1,604 @@
+{
+ "meta": {
+  "MIT-LCP/wfdb-python#524": {
+   "closed_at": "2025-01-24T20:46:03Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "MIT-LCP/wfdb-python#543": {
+   "closed_at": "2025-06-24T14:34:32Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "MIT-LCP/wfdb-python#547": {
+   "closed_at": "2026-06-30T18:30:40Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "MIT-LCP/wfdb-python#574": {
+   "closed_at": "2026-11-02T14:42:40Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "MIT-LCP/wfdb-python#593": {
+   "closed_at": "2026-10-31T17:02:27Z",
+   "state_reason": "completed",
+   "labels": [
+    "bug"
+   ]
+  },
+  "MIT-LCP/wfdb-python#594": {
+   "closed_at": "2026-10-31T17:02:28Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "MIT-LCP/wfdb-python#618": {
+   "closed_at": "2026-11-01T21:33:33Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "ServiceNow/AgentLab#182": {
+   "closed_at": "2025-01-06T13:48:59Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "ServiceNow/AgentLab#187": {
+   "closed_at": "2025-01-06T13:48:28Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "ServiceNow/AgentLab#192": {
+   "closed_at": "2025-01-06T13:49:46Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "jupyterlab/jupyterlab#20167": {
+   "closed_at": "2026-10-21T19:45:49Z",
+   "state_reason": "completed",
+   "labels": [
+    "bug",
+    "status:Needs Triage"
+   ]
+  },
+  "jupyterlab/jupyterlab#20177": {
+   "closed_at": "2026-10-21T16:20:48Z",
+   "state_reason": "completed",
+   "labels": [
+    "bug",
+    "status:Needs Triage"
+   ]
+  },
+  "jupyterlab/jupyterlab#20183": {
+   "closed_at": "2026-10-23T13:36:06Z",
+   "state_reason": "completed",
+   "labels": [
+    "bug"
+   ]
+  },
+  "jupyterlab/jupyterlab#20304": {
+   "closed_at": "2026-10-28T19:46:17Z",
+   "state_reason": "completed",
+   "labels": [
+    "bug",
+    "status:Needs Triage"
+   ]
+  },
+  "jupyterlab/jupyterlab#20308": {
+   "closed_at": "2026-10-29T18:33:40Z",
+   "state_reason": "completed",
+   "labels": [
+    "bug",
+    "status:Needs Triage"
+   ]
+  },
+  "jupyterlab/jupyterlab#20311": {
+   "closed_at": "2026-11-04T13:50:36Z",
+   "state_reason": "completed",
+   "labels": [
+    "enhancement"
+   ]
+  },
+  "jupyterlab/jupyterlab#20329": {
+   "closed_at": "2026-10-30T21:37:14Z",
+   "state_reason": "completed",
+   "labels": [
+    "bug",
+    "status:Needs Triage"
+   ]
+  },
+  "jupyterlab/jupyterlab#20331": {
+   "closed_at": "2026-10-30T15:08:39Z",
+   "state_reason": "completed",
+   "labels": [
+    "bug",
+    "status:Needs Triage"
+   ]
+  },
+  "jupyterlab/jupyterlab#20333": {
+   "closed_at": "2026-10-31T13:01:51Z",
+   "state_reason": "completed",
+   "labels": [
+    "bug",
+    "status:Needs Triage"
+   ]
+  },
+  "jupyterlab/jupyterlab#20367": {
+   "closed_at": "2026-11-03T20:45:37Z",
+   "state_reason": "completed",
+   "labels": [
+    "bug",
+    "status:Needs Triage"
+   ]
+  },
+  "neuropsychology/NeuroKit#1182": {
+   "closed_at": "2026-03-19T18:36:39Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "neuropsychology/NeuroKit#1183": {
+   "closed_at": "2026-03-16T15:49:41Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "neuropsychology/NeuroKit#1196": {
+   "closed_at": "2026-11-04T15:22:23Z",
+   "state_reason": "completed",
+   "labels": [
+    "wontfix"
+   ]
+  },
+  "neuropsychology/NeuroKit#1208": {
+   "closed_at": "2026-11-01T09:12:18Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "neuropsychology/NeuroKit#1230": {
+   "closed_at": "2026-11-01T09:12:19Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "openbq-org/OpenBB#7634": {
+   "closed_at": "2026-10-11T19:48:25Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "openbq-org/OpenBB#7651": {
+   "closed_at": "2026-10-01T20:55:52Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "ranaroussi/yfinance#3033": {
+   "closed_at": "2026-11-03T19:59:27Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "speedyapply/JobSpy#328": {
+   "closed_at": "2026-01-03T05:56:06Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "speedyapply/JobSpy#330": {
+   "closed_at": "2026-01-03T05:56:10Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "speedyapply/JobSpy#331": {
+   "closed_at": "2026-01-03T05:56:12Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "speedyapply/JobSpy#332": {
+   "closed_at": "2026-01-03T05:56:14Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "speedyapply/JobSpy#333": {
+   "closed_at": "2026-01-03T05:56:18Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "speedyapply/JobSpy#349": {
+   "closed_at": "2026-10-01T16:53:18Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "speedyapply/JobSpy#353": {
+   "closed_at": "2026-10-01T16:59:07Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "speedyapply/JobSpy#360": {
+   "closed_at": "2026-06-01T00:30:20Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "speedyapply/JobSpy#370": {
+   "closed_at": "2026-09-30T05:00:54Z",
+   "state_reason": "not_planned",
+   "labels": []
+  },
+  "ServiceNow/AgentLab#211": {
+   "closed_at": "2025-03-25T16:45:21Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "ServiceNow/AgentLab#227": {
+   "closed_at": "2025-03-25T16:44:04Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "ServiceNow/AgentLab#251": {
+   "closed_at": "2025-08-21T15:29:16Z",
+   "state_reason": "completed",
+   "labels": [
+    "good first issue"
+   ]
+  },
+  "ServiceNow/AgentLab#288": {
+   "closed_at": "2025-09-21T02:34:42Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "dgunning/edgartools#1844": {
+   "closed_at": "2026-11-01T23:34:11Z",
+   "state_reason": "completed",
+   "labels": [
+    "bug"
+   ]
+  },
+  "dgunning/edgartools#1845": {
+   "closed_at": "2026-11-01T23:34:11Z",
+   "state_reason": "completed",
+   "labels": [
+    "bug"
+   ]
+  },
+  "dgunning/edgartools#1846": {
+   "closed_at": "2026-11-01T23:33:06Z",
+   "state_reason": "completed",
+   "labels": [
+    "bug"
+   ]
+  },
+  "dgunning/edgartools#1848": {
+   "closed_at": "2026-11-01T23:33:04Z",
+   "state_reason": "completed",
+   "labels": [
+    "bug"
+   ]
+  },
+  "dgunning/edgartools#1849": {
+   "closed_at": "2026-11-01T23:32:02Z",
+   "state_reason": "completed",
+   "labels": [
+    "bug"
+   ]
+  },
+  "dgunning/edgartools#1850": {
+   "closed_at": "2026-11-01T23:32:46Z",
+   "state_reason": "completed",
+   "labels": [
+    "bug"
+   ]
+  },
+  "dgunning/edgartools#1851": {
+   "closed_at": "2026-11-01T23:32:45Z",
+   "state_reason": "completed",
+   "labels": [
+    "bug"
+   ]
+  },
+  "dgunning/edgartools#1853": {
+   "closed_at": "2026-11-01T23:33:05Z",
+   "state_reason": "completed",
+   "labels": [
+    "bug"
+   ]
+  },
+  "dgunning/edgartools#1855": {
+   "closed_at": "2026-11-01T23:32:02Z",
+   "state_reason": "completed",
+   "labels": [
+    "bug"
+   ]
+  },
+  "dgunning/edgartools#1856": {
+   "closed_at": "2026-11-01T23:34:12Z",
+   "state_reason": "completed",
+   "labels": [
+    "bug"
+   ]
+  },
+  "dgunning/edgartools#1857": {
+   "closed_at": "2026-11-01T23:34:12Z",
+   "state_reason": "completed",
+   "labels": [
+    "bug"
+   ]
+  },
+  "jupyterlab/jupyterlab#20035": {
+   "closed_at": "2026-11-05T14:41:36Z",
+   "state_reason": "completed",
+   "labels": [
+    "enhancement",
+    "tag:Security",
+    "status:Needs Triage"
+   ]
+  },
+  "jupyterlab/jupyterlab#20062": {
+   "closed_at": "2026-10-28T08:38:31Z",
+   "state_reason": "completed",
+   "labels": [
+    "bug",
+    "status:Needs Triage"
+   ]
+  },
+  "jupyterlab/jupyterlab#20373": {
+   "closed_at": "2026-11-05T19:49:10Z",
+   "state_reason": "completed",
+   "labels": [
+    "bug",
+    "status:Needs Triage"
+   ]
+  },
+  "jupyterlab/jupyterlab#20375": {
+   "closed_at": "2026-11-05T11:29:46Z",
+   "state_reason": "completed",
+   "labels": [
+    "bug",
+    "status:Needs Triage"
+   ]
+  },
+  "jupyterlab/jupyterlab#20380": {
+   "closed_at": "2026-11-04T10:44:41Z",
+   "state_reason": "completed",
+   "labels": [
+    "bug",
+    "status:Needs Triage"
+   ]
+  },
+  "jupyterlab/jupyterlab#20389": {
+   "closed_at": "2026-11-05T09:18:31Z",
+   "state_reason": "completed",
+   "labels": [
+    "enhancement",
+    "status:Needs Triage"
+   ]
+  },
+  "langchain-ai/langchain#41708": {
+   "closed_at": "2026-11-05T11:23:53Z",
+   "state_reason": "not_planned",
+   "labels": [
+    "external"
+   ]
+  },
+  "langchain-ai/langchain#41709": {
+   "closed_at": "2026-11-05T11:28:24Z",
+   "state_reason": "not_planned",
+   "labels": [
+    "external"
+   ]
+  },
+  "langchain-ai/langchain#41716": {
+   "closed_at": "2026-11-05T16:19:04Z",
+   "state_reason": "not_planned",
+   "labels": [
+    "external"
+   ]
+  },
+  "langchain-ai/langchain#41717": {
+   "closed_at": "2026-11-05T16:22:32Z",
+   "state_reason": "not_planned",
+   "labels": [
+    "external"
+   ]
+  },
+  "microsoft/markitdown#2646": {
+   "closed_at": "2026-10-22T22:06:28Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "mne-tools/mne-python#14321": {
+   "closed_at": "2026-09-21T15:13:21Z",
+   "state_reason": "completed",
+   "labels": [
+    "BUG"
+   ]
+  },
+  "mne-tools/mne-python#14431": {
+   "closed_at": "2026-10-22T07:39:46Z",
+   "state_reason": "completed",
+   "labels": [
+    "BUG"
+   ]
+  },
+  "mne-tools/mne-python#14478": {
+   "closed_at": "2026-11-05T18:15:38Z",
+   "state_reason": "completed",
+   "labels": [
+    "BUG"
+   ]
+  },
+  "neuropsychology/NeuroKit#1159": {
+   "closed_at": "2026-03-02T10:02:27Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "neuropsychology/NeuroKit#1160": {
+   "closed_at": "2026-03-14T17:27:34Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "neuropsychology/NeuroKit#1162": {
+   "closed_at": "2026-03-02T10:01:40Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "neuropsychology/NeuroKit#1163": {
+   "closed_at": "2026-02-16T10:20:50Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "neuropsychology/NeuroKit#1176": {
+   "closed_at": "2026-03-02T10:00:08Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "pandas-dev/pandas#71743": {
+   "closed_at": "2026-10-29T22:14:23Z",
+   "state_reason": "completed",
+   "labels": [
+    "Bug",
+    "Needs Triage"
+   ]
+  },
+  "pandas-dev/pandas#71867": {
+   "closed_at": "2026-11-04T10:48:44Z",
+   "state_reason": "completed",
+   "labels": [
+    "Bug",
+    "Needs Triage"
+   ]
+  },
+  "planarnetwork/gb-transit#180": {
+   "closed_at": "2026-09-08T07:19:44Z",
+   "state_reason": "completed",
+   "labels": [
+    "enhancement"
+   ]
+  },
+  "planarnetwork/gb-transit#182": {
+   "closed_at": "2026-09-08T07:19:45Z",
+   "state_reason": "completed",
+   "labels": [
+    "enhancement"
+   ]
+  },
+  "ranaroussi/yfinance#2931": {
+   "closed_at": "2026-08-11T12:40:28Z",
+   "state_reason": "not_planned",
+   "labels": []
+  },
+  "ranaroussi/yfinance#2937": {
+   "closed_at": "2026-08-05T19:56:20Z",
+   "state_reason": "not_planned",
+   "labels": []
+  },
+  "ranaroussi/yfinance#2939": {
+   "closed_at": "2026-08-06T13:08:54Z",
+   "state_reason": "not_planned",
+   "labels": []
+  },
+  "ranaroussi/yfinance#2963": {
+   "closed_at": "2026-09-02T19:12:06Z",
+   "state_reason": "not_planned",
+   "labels": []
+  },
+  "ranaroussi/yfinance#2964": {
+   "closed_at": "2026-09-02T19:11:46Z",
+   "state_reason": "not_planned",
+   "labels": []
+  },
+  "ranaroussi/yfinance#2997": {
+   "closed_at": "2026-10-14T18:37:06Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "ranaroussi/yfinance#3004": {
+   "closed_at": "2026-11-03T19:34:00Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "ranaroussi/yfinance#3011": {
+   "closed_at": "2026-10-23T11:28:52Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "ranaroussi/yfinance#3012": {
+   "closed_at": "2026-11-03T19:34:05Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "speedyapply/JobSpy#376": {
+   "closed_at": "2026-10-01T16:52:10Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "speedyapply/JobSpy#385": {
+   "closed_at": "2026-10-03T11:51:04Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "speedyapply/JobSpy#434": {
+   "closed_at": "2026-10-22T21:04:31Z",
+   "state_reason": "completed",
+   "labels": []
+  },
+  "jupyterlab/jupyterlab#20393": {
+   "closed_at": "2026-11-05T13:59:40Z",
+   "state_reason": "completed",
+   "labels": [
+    "bug",
+    "status:Needs Triage"
+   ]
+  }
+ },
+ "unmatched": [
+  {
+   "eid": "jupyterlab/jupyterlab#20017",
+   "query": "splash"
+  },
+  {
+   "eid": "mne-tools/mne-python#14463",
+   "query": "QOpenGLContext"
+  },
+  {
+   "eid": "openbq-org/OpenBB#7640",
+   "query": "ViBo"
+  },
+  {
+   "eid": "openbq-org/OpenBB#7641",
+   "query": "NeuForge"
+  },
+  {
+   "eid": "openbq-org/OpenBB#7650",
+   "query": "CLOSE_WAIT"
+  },
+  {
+   "eid": "openbq-org/OpenBB#7655",
+   "query": "companyfacts"
+  },
+  {
+   "eid": "openbq-org/OpenBB#7656",
+   "query": "sec_form4.db"
+  },
+  {
+   "eid": "openbq-org/OpenBB#7667",
+   "query": "CSOAI"
+  },
+  {
+   "eid": "pandas-dev/pandas#71769",
+   "query": "LocalPath"
+  },
+  {
+   "eid": "planarnetwork/gb-transit#129",
+   "query": "Merseyrail"
+  },
+  {
+   "eid": "planarnetwork/gb-transit#76",
+   "query": "930"
+  },
+  {
+   "eid": "planarnetwork/gb-transit#93",
+   "query": "timetable"
+  },
+  {
+   "eid": "ranaroussi/yfinance#2930",
+   "query": "chrome101"
+  },
+  {
+   "eid": "ranaroussi/yfinance#2966",
+   "query": "Nuam"
+  }
+ ]
+}

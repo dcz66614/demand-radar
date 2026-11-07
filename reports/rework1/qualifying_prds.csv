@@ -1,0 +1,6 @@
+pain_id,domain,job,score,n_orgs,n_authors,n_raw_verified,rejected_links_excluded,n_checks,n_solves,n_unknown_checks,closed_evidence,open_evidence,qualified,failure_reason
+0b7adcf63ec0f2075fab,FIN,use a financial research tool,70,3,3,4,2,2,0,0,3,1,True,
+4bb734fac7245033d327,BIO,process physiological signals correctly,70,3,15,19,0,2,0,0,9,10,True,
+6513d051954cbe1b5027,AI,drive an AI agent / API reliably,70,3,14,19,0,2,0,0,7,12,True,
+cd021eac3c93ed0d2de1,BIO,read and write biosignal files,70,3,13,16,0,2,0,0,8,8,True,
+e3091fb34139fdf57dbd,FIN,fetch market/financial data reliably,70,3,12,16,0,2,0,0,14,2,True,

@@ -1,0 +1,28 @@
+........................................................................ [ 27%]
+........................................................................ [ 55%]
+........................................................................ [ 83%]
+............................................                             [100%]
+=============================== warnings summary ===============================
+.venv-real/lib/python3.12/site-packages/wfdb/io/annotation.py:3062
+  /home/hatch/projects/demand-radar-rework2/.venv-real/lib/python3.12/site-packages/wfdb/io/annotation.py:3062: Pandas4Warning: The inplace keyword in DataFrame.set_index is deprecated and will be removed in a future version (PDEP-8).
+  See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+    ann_class_table.set_index(
+
+.venv-real/lib/python3.12/site-packages/wfdb/io/annotation.py:3232
+  /home/hatch/projects/demand-radar-rework2/.venv-real/lib/python3.12/site-packages/wfdb/io/annotation.py:3232: Pandas4Warning: The inplace keyword in DataFrame.set_index is deprecated and will be removed in a future version (PDEP-8).
+  See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+    ann_label_table.set_index(ann_label_table["label_store"].values, inplace=True)
+
+mvps/r1_b/tests/test_real_upstream.py::test_real_rsa_crosscheck_agrees_in_sign_and_magnitude
+mvps/r1_b/tests/test_real_upstream.py::test_run_all_real_returns_nine_rows_with_known_outcomes
+  /home/hatch/projects/demand-radar-rework2/.venv-real/lib/python3.12/site-packages/neurokit2/hrv/hrv_rsa.py:563: NeuroKitWarning: RSP signal not found. For this time, we will derive RSP signal from ECG using ecg_rsp(). But the results are definitely not reliable, so please provide a real RSP signal.
+    warn(
+
+mvps/r1_b/tests/test_real_upstream.py::test_real_ecg_record_excerpt_detects_annotated_beats
+mvps/r1_b/tests/test_real_upstream.py::test_run_all_real_returns_nine_rows_with_known_outcomes
+  /home/hatch/projects/demand-radar-rework2/.venv-real/lib/python3.12/site-packages/wfdb/io/annotation.py:1472: Pandas4Warning: The inplace keyword in DataFrame.set_index is deprecated and will be removed in a future version (PDEP-8).
+  See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+    label_map.set_index(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+260 passed, 6 warnings in 17.35s

@@ -1,0 +1,21 @@
+url,http_status,live_state,closed_at,state_reason,live_title,db_status,db_verdict,db_issue_state,state_agreement
+https://github.com/langchain-ai/langchain/issues/41708,200,closed,2026-11-05T11:23:53Z,not_planned,langchain-openai: Responses API streaming never emits a completed event for func,VERIFIED,VERIFIED,closed,match
+https://github.com/langchain-ai/langchain/issues/41709,200,closed,2026-11-05T11:28:24Z,not_planned,langchain-openai: Responses API streaming never emits a completed event for func,VERIFIED,VERIFIED,closed,match
+https://github.com/langchain-ai/langchain/issues/41710,200,open,,,langchain-openai: Responses API streaming never emits a completed event for func,VERIFIED,VERIFIED,open,match
+https://github.com/ServiceNow/AgentLab/issues/187,200,closed,2025-01-06T13:48:28Z,completed,CAPTCHA triggered at google search ,VERIFIED,VERIFIED,closed,match
+https://github.com/openbq-org/OpenBB/issues/7634,200,closed,2026-10-11T19:48:25Z,completed,"[Bug] SEC standardized statements: missing debt tag mappings, and operating inco",VERIFIED,VERIFIED,closed,match
+https://github.com/dgunning/edgartools/issues/1857,200,closed,2026-11-01T23:34:12Z,completed,[DATA] Reverse index classifies 44 tax-reconciliation concepts as total income t,VERIFIED,VERIFIED,closed,match
+https://github.com/ServiceNow/AgentLab/issues/340,200,open,,,count_tokens silently substitutes the GPT-4 tokenizer for every non-bare-OpenAI ,VERIFIED,VERIFIED,open,match
+https://github.com/ServiceNow/AgentLab/issues/182,200,closed,2025-01-06T13:48:59Z,completed,Average step duration vs RateLimit/OpenAI timeouts,VERIFIED,VERIFIED,closed,match
+https://github.com/neuropsychology/NeuroKit/issues/1212,200,open,,,emg_process amplitude filter ignores the recording sampling rate,VERIFIED,VERIFIED,open,match
+https://github.com/neuropsychology/NeuroKit/issues/1242,200,open,,,rsp_process() raises IndexError on a short simulated recording,VERIFIED,VERIFIED,open,match
+https://github.com/neuropsychology/NeuroKit/issues/1208,200,closed,2026-11-01T09:12:18Z,completed,"fractal_dfa results depend on the amplitude units of the input signal, and fail ",VERIFIED,VERIFIED,closed,match
+https://github.com/neuropsychology/NeuroKit/issues/1230,200,closed,2026-11-01T09:12:19Z,completed,"RSA_PorgesBohrer is computed on heart rate instead of heart period, so it comes ",VERIFIED,VERIFIED,closed,match
+https://github.com/dgunning/edgartools/issues/1848,200,closed,2026-11-01T23:33:04Z,completed,"[DATA] 13F comparison and history cross-match equity, Put and Call positions on ",VERIFIED,VERIFIED,closed,match
+https://github.com/ranaroussi/yfinance/issues/3011,200,closed,2026-10-23T11:28:52Z,completed,Track CVE-2026-111497 in Brotli bundled with the default curl_cffi backend,VERIFIED,VERIFIED,closed,match
+https://github.com/ranaroussi/yfinance/issues/3012,200,closed,2026-11-03T19:34:05Z,completed,Track CVE-2026-111497 in Brotli bundled with the default curl_cffi backend,VERIFIED,VERIFIED,closed,match
+https://github.com/openbq-org/OpenBB/issues/7744,200,open,,,"[Workspace RFC] Pluggable chart renderers, configurable library selection, and o",VERIFIED,VERIFIED,open,match
+https://github.com/microsoft/markitdown/issues/2799,200,open,,,HAVAALAN,REJECTED,REJECTED,open,match
+https://github.com/openbq-org/OpenBB/issues/7640,200,closed,2026-09-15T05:12:30Z,completed,[Proposal] Memory for OpenBB agents — 97.5% fewer tokens (ViBo),REJECTED,REJECTED,closed,match
+https://github.com/neuropsychology/NeuroKit/issues/1196,200,closed,2026-11-04T15:22:23Z,completed,rsp_intervalrelated incorrectly calculates phase durations on epoched data,VERIFIED,VERIFIED,closed,match
+https://github.com/ServiceNow/AgentLab/issues/249,200,open,,,Fail to Reproduce WebArena Results with GenericAgent-GPT-4o,VERIFIED,VERIFIED,open,match

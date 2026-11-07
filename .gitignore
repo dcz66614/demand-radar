@@ -1,0 +1,10 @@
+.venv/
+.env
+data/*.sqlite
+__pycache__/
+*.pyc
+.cache/
+.pytest_cache/
+.ruff_cache/
+
+.venv-real/
